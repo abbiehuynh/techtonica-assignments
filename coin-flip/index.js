@@ -41,6 +41,7 @@ function flipCoin() {
     c.fillStyle = "Black";
     c.font = "72px Arial";
     c.fillText("H", xLoc, yLoc);
+
  }
 
 
@@ -64,3 +65,7 @@ function flipCoin() {
     c.font = "72px Arial";
     c.fillText("T", xLoc, yLoc);
  }
+
+ // showStats function
+    // number of flips, number of heads vs tails, percentage of flips
+    
