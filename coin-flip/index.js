@@ -24,6 +24,9 @@ function flipCoin() {
 }
  // drawHeads function
  function drawHeads(xLoc, yLoc, color) {
+    // clears circle from page after each click
+    c.clearRect(0, 0, W, H);
+    
     // draws head side of coin, draws circle, radius = 100;
     c.beginPath();
     c.fillStyle = color;
@@ -43,6 +46,9 @@ function flipCoin() {
 
 // drawTails function
  function drawTails(xLoc, yLoc, color) {
+    // clears circle from webpage after each click 
+    c.clearRect(0, 0, W, H);
+
     // draws tail side of coin, draws circle, radius = 100;
     c.beginPath();
     c.fillStyle = color;
