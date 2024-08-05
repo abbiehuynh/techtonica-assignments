@@ -46,5 +46,10 @@ class TicketType {
     this.ticketName = ticketName;
     this.ticketPrice = ticketPrice;
     }
+    // add function on Event Class addAvailableTickets that will create a ticket type for the event
+    addAvailableTickes(ticketName, ticketPrice) {
+        let html2 = 
+    }
 }
+
 
