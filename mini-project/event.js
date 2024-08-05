@@ -40,3 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#event').innerHTML = html;
 });
 
+// creates class TicketType that adds the ability for events to have different ticket types with differernt prices
+class TicketType {
+    constructor(ticketName, ticketPrice) {
+    this.ticketName = ticketName;
+    this.ticketPrice = ticketPrice;
+    }
+}
+
