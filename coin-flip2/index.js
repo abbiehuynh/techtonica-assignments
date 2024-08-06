@@ -1,6 +1,9 @@
 // coin-flip game
 
 // creates variables for heads, tails, coin
+let heads = 0;
+let tails = 1;
+
 
 // set value of heads and tails 0, 1
 
