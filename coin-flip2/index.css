@@ -28,3 +28,7 @@ body {
     grid-row: 3 / 3;
     width: 100px;
 }
+
+.head, .tails {
+    position: absolute;
+}
