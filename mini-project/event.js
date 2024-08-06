@@ -23,7 +23,23 @@ class Event {
     // adds function that returns string representing all ticket types and prices
     allTickets() {
         return "All tickets " + this.availableTickets.map
-       ((ticket, index) => `${index + 1}. ${ticket.name} ()`
+       ((ticket, index) => `${index + 1}. ${ticket.ticketName} ($${ticket.price})`).join(" ")
+    }
+    searchTickets(low, high) {
+        const eligibleTickets = this.availableTickets.filter(ticket => ticket.price >= low && ticket.price <= high);
+        if (eligibleTickets.length === 0){
+            return "No tickets available";
+        }
+        return "Eligible tickets: " + eligibleTickets.map((ticket, index) => `${index + 1 }. ${ticket.ticketName} 
+        ($${ticket.price})`).join(" ");
+    }
+    // challenge: get cheapest tickets
+    getCheapestTickets() {
+        if(this.availableTickets.length === 0) {
+            return "No tickets available";
+        }
+        const cheapestTicket = this.availableTickets.reduce((min, ticket) => ticket.price < min.price ? ticket : min);
+        return `Cheapest Ticket: ${cheapestTicket.ticketName} ($${cheapestTicket.price})`
     }
 }
 
@@ -46,19 +62,47 @@ const eventObj3 = new Event(
 // creates an empty Event array
 const eventArray = new Array();
 
-//pushes the objects created into the array 
+//pushes multiple objects created into the array 
 eventArray.push(eventObj1, eventObj2, eventObj3);
 
 console.log(eventArray);
 
-document.addEventListener('DOMContentLoaded', () => {
-    // handler when DOM is fully loaded
-    let html = "";
-    // iterates through the array of objects
-    eventArray.forEach((item) => {
-        html += `<li>${item.name} - ${item.description}`;
-    });
+// document.addEventListener('DOMContentLoaded', () => {
+//     // handler when DOM is fully loaded
+//     let html = "";
+//     // iterates through the array of objects
+//     eventArray.forEach((item) => {
+//         html += `<li>${item.name} - ${item.description}`;
+//     });
+//     document.querySelector('#event').innerHTML = html;
+// });
+
+// document.addEventListener('DOMContentLoaded', () => {
+//         let html = '';
+//         eventArray.forEach((event) => {
+//           html += `<li>${event.name} - ${event.description} - ${event.allTickets()}</li>`;
+//         });
+//         document.querySelector('#event').innerHTML = html;
+//       });
+
+// view the search tickets
+document.addEventListener("DOMContentLoaded", () => {
+    let html = '';
+    eventArray.forEach((event) => {
+        html += `<li> ${event.name} - ${event.description} = ${event.searchTickets(0, 100)}</li>`
+    })
     document.querySelector('#event').innerHTML = html;
+});
+
+// chalennge cheapest ticket show up on html
+document.addEventListener("DOMContentLoaded", () => {
+    let html = ""
+    eventArray.forEach((event) => {
+        html += `<li> ${event.name} - ${event.description} <br>
+        ${event.getCheapestTickets()} <br>
+        ${event.searchTickets(0,100)} </li>`;
+    })
+    document.querySelector("#cheapTix").innerHTML = html;
 });
 
 // adds available tickets to events 
@@ -72,3 +116,8 @@ eventObj3.addAvailableTickets("Orchestra", 300)
 eventObj3.addAvailableTickets("Mezzanine", 200)
 eventObj3.addAvailableTickets("Balcony", 100)
 
+//test cases for searchTickets
+console.log("Test case 1:", eventObj3.searchTickets(0,250));
+
+// test case for cheapest ticket
+console.log("Event 1:", eventObj1.getCheapestTickets());
