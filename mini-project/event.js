@@ -65,6 +65,7 @@ const eventArray = new Array();
 //pushes multiple objects created into the array 
 eventArray.push(eventObj1, eventObj2, eventObj3);
 
+// logs all of the objects as one array
 console.log(eventArray);
 
 // document.addEventListener('DOMContentLoaded', () => {
