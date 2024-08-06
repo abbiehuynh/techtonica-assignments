@@ -29,6 +29,6 @@ body {
     width: 100px;
 }
 
-.head, .tails {
+#head, #tails {
     position: absolute;
 }
