@@ -1,0 +1,14 @@
+#desert {
+    position: absolute;
+    background-image: url("dino-background.png");
+    height: 300px;
+    width: 100%;
+}
+
+.dino {
+    background-image: url("dino.png");
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    bottom: 0;
+}
