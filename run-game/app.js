@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             // moves up
-            position =+ 180;
+            position =+ 200;
             count++;
             position = position * gravity;
 
@@ -69,33 +69,44 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // obstacle generator
     function generateObstacles() {
-        // places obstacle to the far left of screen
-        let obstaclePosition = 1800;
+        //  will only generate obstacles until Game Over
+        if (!isGameOver) {
+            // creates random time to generate obstacles within 4000 milliseconds
+            let randomTime = Math.random() * 4000;
+       
+            // places obstacle to the far left of screen
+            let obstaclePosition = 1800;
 
-        // creates variable and creates div for obstacle
-        const obstacle = document.createElement("div");
-        // gives the div the class name obstacle
-        obstacle.classList.add("obstacle");
-        grid.appendChild(obstacle);
+            // creates variable and creates div for obstacle
+            const obstacle = document.createElement("div");
+            // gives the div the class name obstacle
+            obstacle.classList.add("obstacle");
+            grid.appendChild(obstacle);
 
-        obstacle.style.left = obstaclePosition + "px";
-
-        let timerId = setInterval(function () {
-            if (obstaclePosition < 0) {
-                clearInterval(timerId);
-                alert.innerHTML = "Game Over";
-                isGameOver = true;
-                // remove all children from the grid
-                // while the first child exists, remove the last child
-                while (grid.firstChild) {
-                    grid.removeChild(grid.lastChild)
-                }
-            }
-
-            // moves obstacle left
-            obstaclePosition -= 10;
             obstacle.style.left = obstaclePosition + "px";
-        }, 20);
+
+            let timerId = setInterval(function () {
+                // sets conditions for game over, prevents automatic game over when encountering obstacle 
+                if (obstaclePosition > 0 && obstaclePosition < 150 && position < 150) {
+                    clearInterval(timerId);
+                    alert.innerHTML = "Game Over";
+                    isGameOver = true;
+                    // remove all children from the grid
+                    // while the first child exists, remove the last child
+                    while (grid.firstChild) {
+                        grid.removeChild(grid.lastChild)
+                    }
+                }
+
+                // moves obstacle left
+                obstaclePosition -= 10;
+                obstacle.style.left = obstaclePosition + "px";
+            }, 20);
+
+            // continues to generate obstacles at random times if game is not over
+            setTimeout(generateObstacles, randomTime);
+        }
+       
     }
     generateObstacles();
 
