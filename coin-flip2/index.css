@@ -1,0 +1,56 @@
+body {
+    background-color: rgb(134, 129, 129);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+    justify-items: center;
+    padding: 20px;
+    background-color: aliceblue;
+
+}
+
+.stats {
+    display: grid;
+    grid-column: 2 / 2;
+    grid-row: 1 / 1;
+}
+
+.coin {
+    display: grid;
+    grid-column: 1 / 1;
+    grid-row: 2 / 2;
+}
+
+#heads, #tails {
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.buttons {
+    display: grid;
+    grid-column: 1 / 1;
+    grid-row: 3 / 3;
+    width: 100px;
+}
+
+@keyframes spin-tails {
+    0%{
+        transform: rotateX(0);
+    }
+    100%{
+        transform: rotateX(1000deg);
+    }
+}
+
+@keyframes spin-heads {
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotateX(2160deg);
+    }
+}

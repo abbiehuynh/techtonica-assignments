@@ -1,0 +1,38 @@
+
+/* creates animation slideright, creates background movement 
+    from left to right */
+@keyframes slideright {
+    from {
+        background-position: 70000%;
+    }
+    to {
+        background-position: 0%;
+    }
+}
+
+#desert {
+    position: absolute;
+    background-image: url("dino-background2.png");
+    height: 300px;
+    width: 100%;
+    animation: slideright 600s infinite linear;
+    bottom: 0;
+}
+
+.dino {
+    background-image: url("dino.png");
+    height: 150px;
+    width: 150px;
+
+    /* puts dino at bottom of background img */
+    position: absolute;
+    bottom: 0;
+}
+
+.obstacle {
+    background-image: url("cactus.png");
+    width: 58px;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+}

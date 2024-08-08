@@ -95,6 +95,21 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('#event').innerHTML = html;
 });
 
+<<<<<<< HEAD
+// creates class TicketType that adds the ability for events to have different ticket types with differernt prices
+class TicketType {
+    constructor(ticketName, ticketPrice) {
+    this.ticketName = ticketName;
+    this.ticketPrice = ticketPrice;
+    }
+    // add function on Event Class addAvailableTickets that will create a ticket type for the event
+    addAvailableTickes(ticketName, ticketPrice) {
+        let html2 = 
+    }
+}
+
+
+=======
 // chalennge cheapest ticket show up on html
 document.addEventListener("DOMContentLoaded", () => {
     let html = ""
@@ -122,3 +137,4 @@ console.log("Test case 1:", eventObj3.searchTickets(0,250));
 
 // test case for cheapest ticket
 console.log("Event 1:", eventObj1.getCheapestTickets());
+>>>>>>> 709e68390c34d147f282d45c7564b956cef70d69
