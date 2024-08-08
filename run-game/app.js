@@ -63,7 +63,19 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 20)
     }
 
+    // obstacle generator
+    function generateObstacles() {
+        let obstaclePosition = 1500;
 
+        // creates variable and creates div for obstacle
+        const obstacle = document.createElement("div");
+        // gives the div the class name obstacle
+        obstacle.classList.add("obstacle");
+        grid.appendChild(obstacle);
+
+        obstacle.style.left = obstaclePosition + "px";
+    }
+    generateObstacles();
 
 
     document.addEventListener('keydown', control)

@@ -28,3 +28,11 @@
     position: absolute;
     bottom: 0;
 }
+
+.obstacle {
+    background-image: url("cactus.png");
+    width: 87px;
+    height: 150px;
+    position: absolute;
+    bottom: 0;
+}
