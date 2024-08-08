@@ -16,6 +16,7 @@
     height: 300px;
     width: 100%;
     animation: slideright 600s infinite linear;
+    bottom: 0;
 }
 
 .dino {

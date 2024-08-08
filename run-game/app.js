@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // creates variable to access elements in html
     const dino = document.querySelector(".dino");
     const grid = document.querySelector(".grid");
+
+    let gravity = 0.9;
     
     function control(e) {
         // create connection to space bar, when hit, the jump function will run
@@ -19,7 +21,8 @@ document.addEventListener("DOMContentLoaded", function() {
         let timerId = setInterval(function() {
         
             // move up
-            position =+ 30
+            position =+ 500;
+            position = position * gravity;
 
             // overrides position in css
             dino.style.bottom = position + 'px'
