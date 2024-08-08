@@ -31,8 +31,8 @@
 
 .obstacle {
     background-image: url("cactus.png");
-    width: 87px;
-    height: 150px;
+    width: 58px;
+    height: 100px;
     position: absolute;
     bottom: 0;
 }

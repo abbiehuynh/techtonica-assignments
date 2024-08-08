@@ -6,9 +6,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const dino = document.querySelector(".dino");
     const grid = document.querySelector(".grid");
 
+    const alert = document.getElementById("alert")
+
     // creates variable for jump function
     let gravity = 1;
     let isJumping = false;
+
+    let isGameOver = false;
     
     function control(e) {
         // create connection to space bar, when hit, the jump function will run
@@ -65,7 +69,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // obstacle generator
     function generateObstacles() {
-        let obstaclePosition = 1500;
+        // places obstacle to the far left of screen
+        let obstaclePosition = 1800;
 
         // creates variable and creates div for obstacle
         const obstacle = document.createElement("div");
@@ -74,6 +79,23 @@ document.addEventListener("DOMContentLoaded", function() {
         grid.appendChild(obstacle);
 
         obstacle.style.left = obstaclePosition + "px";
+
+        let timerId = setInterval(function () {
+            if (obstaclePosition < 0) {
+                clearInterval(timerId);
+                alert.innerHTML = "Game Over";
+                isGameOver = true;
+                // remove all children from the grid
+                // while the first child exists, remove the last child
+                while (grid.firstChild) {
+                    grid.removeChild(grid.lastChild)
+                }
+            }
+
+            // moves obstacle left
+            obstaclePosition -= 10;
+            obstacle.style.left = obstaclePosition + "px";
+        }, 20);
     }
     generateObstacles();
 
