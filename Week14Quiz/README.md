@@ -7,7 +7,8 @@ You have just joined your favorite company and have been tasked with printing ne
 3. node_modules are committed, remove them from repo on GitHub
 4. Correct the server file’s directory by moving it to the appropriate directory
 5. Update README with
-    - screenshot of the app's webpage, 
+    - screenshot of the app's webpage,
+        ![screenshot](/Week14Quiz/client/assets/screenshot.png)
     - document errors you encountered and how you fixed them, 
         - updated presentation of code in server.js
             - moved app.listen to the bottom
