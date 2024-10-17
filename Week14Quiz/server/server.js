@@ -4,9 +4,13 @@ const app = express();
 
 const PORT = process.env.PORT || 8080;
 
-app.listen(PORT, () => console.log("Server started"));
-
 app.use(express.static("build"));
+
+// moved get request to top of page from the bottom
+  // allows us to see what endpoint is being used to access the data
+app.get("/api/items", (req, res) => {
+  res.send(items);
+});
 
 const items = [
   {
@@ -19,6 +23,5 @@ const items = [
   },
 ];
 
-app.get("/api/items", (req, res) => {
-  res.send(items);
-});
+// moved to bottom of page from the top
+app.listen(PORT, () => console.log("Server started"));
