@@ -10,7 +10,8 @@ function App() {
   }, []);
 
   function renderItems() {
-    return items.map((item, i) => {
+    // typo item => items to load items (data)
+    return items.map((items, i) => {
       return (
         <div key={i}>
           <h3>{items.name}</h3>
